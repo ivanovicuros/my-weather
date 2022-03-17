@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getForecast } from '../actions'
-
+import { connect } from 'react-redux'
 
 const Weather = (props) => {
  const [city, setCity] = useState('')
 
-
+useEffect(() => {
+    props.dispatch(getForecast('brooklyn'))
+}, [])
 
  const handleChange = e => {
      setCity({
@@ -25,8 +27,12 @@ const Weather = (props) => {
     )
 }
 
+const mapStateToProps = state => {
+    return {
+        weather: state.weather,
+        isFetching: state.isFetching,
+        error: state.error 
+    }
+}
 
-
-
-
-export default Weather
+export default connect(mapStateToProps)(Weather)

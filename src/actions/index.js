@@ -1,18 +1,15 @@
 import axios from 'axios';
-const FETCH_START = 'FETCH_START';
-const FETCH_SUCCESS = 'FETCH_SUCCESS';
-const FETCH_FAIL = 'FETCH_FAIL';
-
-const url = process.env.BASE_URL
-const appId = process.env.APP_ID
-const apiKey = process.env.API_KEY
-
+import { baseUrl, apiUrl } from '../services/urls';
+export const FETCH_START = 'FETCH_START';
+export const FETCH_SUCCESS = 'FETCH_SUCCESS';
+export const FETCH_FAIL = 'FETCH_FAIL';
 
 export const getForecast = (city) => (dispatch) => {
     dispatch(fetchStart())
-    axios.get(`${url}${city}${appId}${apiKey}`)
+    axios.get(`${baseUrl}${city}${apiUrl}`)
     .then(res => {
-        dispatch(fetchSuccess(res))
+        console.log(res)
+        dispatch(fetchSuccess(res.data))
     })
     .catch(err => {
         dispatch(fetchFail(err))
