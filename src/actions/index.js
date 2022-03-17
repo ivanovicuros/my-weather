@@ -6,10 +6,10 @@ export const fetchStart = () => {
     return ({type: FETCH_START});
 }
 
-export const fetchSuccess = () => {
-    return ({type: FETCH_SUCCESS});
+export const fetchSuccess = (city) => {
+    return ({type: FETCH_SUCCESS, payload: city});
 }
 
-export const fetchFail = () => {
-    return ({type: FETCH_FAIL});
+export const fetchFail = (errorMsg) => {
+    return ({type: FETCH_FAIL, payload: errorMsg});
 }
