@@ -3,7 +3,11 @@ import { getForecast } from '../actions'
 import { connect } from 'react-redux'
 
 const Weather = (props) => {
- const [city, setCity] = useState('')
+ const [city, setCity] = useState('chicago')
+
+useEffect(() => {
+    props.dispatch(getForecast(city))
+}, [])
 
 
  const handleChange = e => {

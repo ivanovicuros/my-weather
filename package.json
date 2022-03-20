@@ -11,6 +11,7 @@
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "ionic": "^5.4.16",
+    "nodemon": "^2.0.15",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
@@ -20,7 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:be": "nodemon index.js",
+    "start:fe": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
