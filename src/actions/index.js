@@ -7,8 +7,8 @@ export const getForecast = (city) => (dispatch) => {
     dispatch(fetchStart())
     const options = {
         method: 'GET',
-        url: 'https://api.openweathermap.org/data/2.5/weather',
-        params: {q: city, appid: 'API_KEY' } 
+        url: 'http://localhost:9000/weather',
+        params: {q: city} 
     }
     axios.request(options)
     .then(resp => {
