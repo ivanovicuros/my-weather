@@ -7,7 +7,7 @@ export const getForecast = (city) => (dispatch) => {
     dispatch(fetchStart())
     const options = {
         method: 'GET',
-        url: 'http://localhost:9000/weather',
+        url: 'https://bw-u4-project.herokuapp.com/weather',
         params: {q: city} 
     }
     axios.request(options)

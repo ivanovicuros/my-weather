@@ -5,9 +5,12 @@ import { connect } from 'react-redux'
 const Weather = (props) => {
  const [city, setCity] = useState('brooklyn')
 
+ console.log(props.weather)
+
 useEffect(() => {
     props.dispatch(getForecast(city))
 }, [])
+
 
 
  const handleChange = e => {
@@ -24,6 +27,7 @@ useEffect(() => {
     return (
         <>
         <h1>My Weather</h1>
+        <h1>{props.weather.name}</h1>
         </>
     )
 }
