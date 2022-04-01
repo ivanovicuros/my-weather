@@ -12,7 +12,6 @@ export const getForecast = (city) => (dispatch) => {
     }
     axios.request(options)
     .then(resp => {
-        console.log(resp)
         dispatch(fetchSuccess(resp.data))
     })
     .catch(err => {
