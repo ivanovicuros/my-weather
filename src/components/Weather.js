@@ -1,19 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { getForecast } from '../actions'
 import { connect } from 'react-redux'
+import styled from "styled-components"
+import Info from './Info';
+import SearchBar from "./SearchBar";
+
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+`
+
 
 const Weather = (props) => {
  const [city, setCity] = useState({name: 'Brooklyn'})
 
-useEffect(() => {
-    props.dispatch(getForecast(city.name))
-    setCity({
-        ...city,
-        name: ''
-    })
-}, [])
-
-
+// useEffect(() => {
+//     props.dispatch(getForecast(city.name))
+//     setCity({
+//         ...city,
+//         name: ''
+//     })
+// }, [])
 
  const handleChange = e => {
      setCity({...city,
@@ -23,25 +33,24 @@ useEffect(() => {
  const handleSubmit = e => {
     e.preventDefault();
     props.dispatch(getForecast(city.name))
+    setCity({...city,
+        name: ''
+    })
  }
     
     return (
         <>
+        <Container>
         <h1>My Weather</h1>
-        <h1>{props.weather.name}</h1>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <input name='name' type='text' value={city.name} placeholder='Search' onChange={handleChange} maxLength='15' />
-                <button>Location</button>
-            </div>
-        </form>
+        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} city={city} />
+        <Info />
+        </Container>
         </>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        weather: state.weather,
         isFetching: state.isFetching,
         error: state.error 
     }
