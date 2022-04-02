@@ -1,50 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { getForecast } from '../actions'
-import { connect } from 'react-redux'
+import React from "react";
+import { connect } from 'react-redux';
 import styled from "styled-components"
-import Info from './Info';
-import SearchBar from "./SearchBar";
-
-
-const Container = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-`
-
+import Info from './Info/Info';
+import SearchBar from "./SearchBar/SearchBar";
+import Navbar from './NavbarNot/index'
 
 const Weather = (props) => {
- const [city, setCity] = useState({name: 'Brooklyn'})
-
-// useEffect(() => {
-//     props.dispatch(getForecast(city.name))
-//     setCity({
-//         ...city,
-//         name: ''
-//     })
-// }, [])
-
- const handleChange = e => {
-     setCity({...city,
-         name: e.target.value
-     })
- }
- const handleSubmit = e => {
-    e.preventDefault();
-    props.dispatch(getForecast(city.name))
-    setCity({...city,
-        name: ''
-    })
- }
     
     return (
         <>
-        <Container>
-        <h1>My Weather</h1>
-        <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} city={city} />
+        <Navbar />
+        <SearchBar />
         <Info />
-        </Container>
         </>
     )
 }
