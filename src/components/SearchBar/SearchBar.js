@@ -6,6 +6,18 @@ import styled from "styled-components";
 const Search = styled.div`
     display:flex;
     justify-content: center;
+    padding: 5vh;
+    margin-top: 3%;
+`
+const Input = styled.input`
+    border-radius: 10px;
+    height: 7vh;
+    width: 40vw;
+    font-size: 1.2rem;
+    opacity: .6;
+    @media (max-width: 375xp) {
+        height: 0.1vh;
+    }
 `
 
 const SearchBar = (props) => {
@@ -36,8 +48,7 @@ const SearchBar = (props) => {
         <>
         <Search>
         <form onSubmit={handleSubmit}>
-            <div>
-                <input
+                <Input
                     name='name'
                     type='text'
                     value={city.name}
@@ -46,7 +57,6 @@ const SearchBar = (props) => {
                     maxLength='15'
                 />
                 <button>Location</button>
-            </div>
         </form>
         </Search>
         </>

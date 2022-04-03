@@ -9,7 +9,7 @@ import pageBackground from '../images/pretty.jpg'
 const Page = styled.div`
     background: url(${pageBackground});
     background-size: cover;
-    height: 1000px;
+    height: 100vh;
 `
 
 const Weather = (props) => {
