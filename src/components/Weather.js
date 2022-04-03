@@ -3,15 +3,24 @@ import { connect } from 'react-redux';
 import styled from "styled-components"
 import Info from './Info/Info';
 import SearchBar from "./SearchBar/SearchBar";
-import Navbar from './NavbarNot/index'
+import Navbar from './NavbarNot/index';
+import pageBackground from '../images/pretty.jpg'
+
+const Page = styled.div`
+    background: url(${pageBackground});
+    background-size: cover;
+    height: 1000px;
+`
 
 const Weather = (props) => {
     
     return (
         <>
-        <Navbar />
-        <SearchBar />
-        <Info />
+        <Page>
+            <Navbar />
+            <SearchBar />
+            <Info />
+        </Page>
         </>
     )
 }
