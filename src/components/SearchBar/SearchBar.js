@@ -23,18 +23,13 @@ const Input = styled.input`
 const SearchBar = (props) => {
     const [city, setCity] = useState({name: 'Brooklyn'})
 
-// useEffect(() => {
-//     props.dispatch(getForecast(city.name))
-//     setCity({
-//         ...city,
-//         name: ''
-//     })
-// }, [])
+useEffect(() => {
+    props.dispatch(getForecast(city.name))
+    setCity({name: ''})
+}, [])
 
  const handleChange = e => {
-     setCity({...city,
-         name: e.target.value
-     })
+     setCity({name: e.target.value})
  }
  const handleSubmit = e => {
     e.preventDefault();
@@ -47,17 +42,17 @@ const SearchBar = (props) => {
     return (
         <>
         <Search>
-        <form onSubmit={handleSubmit}>
-                <Input
-                    name='name'
-                    type='text'
-                    value={city.name}
-                    placeholder='Search'
-                    onChange={handleChange}
-                    maxLength='15'
-                />
-                <button>Location</button>
-        </form>
+            <form onSubmit={handleSubmit}>
+                    <Input
+                        name='name'
+                        type='text'
+                        value={city.name}
+                        placeholder='Search'
+                        onChange={handleChange}
+                        maxLength='15'
+                    />
+                    <button>Location</button>
+            </form>
         </Search>
         </>
     )
