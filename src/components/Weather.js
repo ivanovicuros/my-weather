@@ -11,7 +11,6 @@ const Page = styled.div`
     background-size: cover;
     height: 100vh;
 `
-
 const Weather = (props) => {
     
     return (

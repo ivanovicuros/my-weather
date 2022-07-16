@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { getForecast } from '../../actions/index';
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { FaSearchLocation } from 'react-icons/fa';
 
 const Search = styled.div`
-    display:flex;
+    display: flex;
     justify-content: center;
     padding: 5vh;
     margin-top: 3%;
@@ -13,10 +14,26 @@ const Input = styled.input`
     border-radius: 10px;
     height: 7vh;
     width: 40vw;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     opacity: .6;
     @media (max-width: 375xp) {
         height: 0.1vh;
+    }
+`
+const Form = styled.form`
+    display: flex;
+    justify-content: center;
+`
+
+const Button = styled.button`
+    border: none;
+    padding: 0;
+    background: none;
+    margin-left: 5px;
+    padding: 3px;
+    &:hover {
+        border: solid 1px;
+        
     }
 `
 
@@ -42,17 +59,17 @@ useEffect(() => {
     return (
         <>
         <Search>
-            <form onSubmit={handleSubmit}>
-                    <Input
-                        name='name'
-                        type='text'
-                        value={city.name}
-                        placeholder='Search'
-                        onChange={handleChange}
-                        maxLength='15'
-                    />
-                    <button>Location</button>
-            </form>
+            <Form onSubmit={handleSubmit}>
+                <Input
+                    name='name'
+                    type='text'
+                    value={city.name}
+                    placeholder='Search'
+                    onChange={handleChange}
+                    maxLength='15'
+                />
+                <Button><FaSearchLocation size={45} /></Button>
+            </Form>
         </Search>
         </>
     )

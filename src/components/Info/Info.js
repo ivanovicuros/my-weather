@@ -3,7 +3,8 @@ import { connect } from "react-redux"
 
  const Info = (props) => {
 
-     
+    console.log(props.weather)
+    
     return (
         <>
             <div>
