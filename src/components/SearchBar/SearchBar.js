@@ -5,8 +5,6 @@ import styled from "styled-components";
 import { FaSearchLocation } from 'react-icons/fa';
 
 const Search = styled.div`
-    display: flex;
-    justify-content: center;
     padding: 5vh;
     margin-top: 3%;
 `
@@ -29,11 +27,11 @@ const Button = styled.button`
     border: none;
     padding: 0;
     background: none;
-    margin-left: 5px;
+    margin-left: 15px;
     padding: 3px;
     &:hover {
-        border: solid 1px;
-        
+        background-color: white;
+        border-radius: 5px;
     }
 `
 
@@ -51,9 +49,7 @@ useEffect(() => {
  const handleSubmit = e => {
     e.preventDefault();
     props.dispatch(getForecast(city.name))
-    setCity({...city,
-        name: ''
-    })
+    setCity({name: ''})
  }
 
     return (
@@ -69,6 +65,7 @@ useEffect(() => {
                     maxLength='15'
                 />
                 <Button><FaSearchLocation size={45} /></Button>
+                <button>button</button>
             </Form>
         </Search>
         </>
